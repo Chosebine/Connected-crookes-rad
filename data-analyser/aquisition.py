@@ -9,7 +9,7 @@ import pandas as pd
 connex = ser.Serial('/dev/ttyACM0',115200)  # open serial port
 oldLux=-1
 while True:
-    buffsize = 3000
+    buffsize = 1000
     buff = pd.DataFrame(columns=['lux','varlux' ,'date'])
     buff['date'] = pd.to_datetime(buff['date'])
     buff['lux'] = pd.to_numeric(buff['lux'])
