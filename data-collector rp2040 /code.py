@@ -21,7 +21,7 @@ sensor = adafruit_tsl2591.TSL2591(i2cEnv)
 sensor.gain = adafruit_tsl2591.GAIN_LOW
 sensor.integration_time = adafruit_tsl2591.INTEGRATIONTIME_100MS
 
-delayLight=0.01
+delayLight=0.1
 lastLight=-1
 lux = -1
 infrared = -1
@@ -37,6 +37,4 @@ while True:
         visible = sensor.visible    
         full_spectrum = sensor.full_spectrum
         lastLight = now
-    
-
-    print("{:4.2f}".format(lux)+','+"{:4}".format(infrared)+','+"{:8}".format(visible)+','+"{:8}".format(full_spectrum))
+        print("{:4.2f}".format(lux)+','+"{:4}".format(infrared)+','+"{:8}".format(visible)+','+"{:8}".format(full_spectrum))
