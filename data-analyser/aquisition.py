@@ -9,11 +9,11 @@ import pandas as pd
 connex = ser.Serial('/dev/ttyACM0',115200)  # open serial port
 oldLux=-1
 while True:
-    buffsize = 1000
-    buff = pd.DataFrame(columns=['lux','varlux' ,'date'])
+    buffsize = 100
+    buff = pd.DataFrame(columns=['lux','delta_lux' ,'infrared','delta_infrared','visible','delta_visible','full_spectrum','delta_full_spectrum','date'])
     buff['date'] = pd.to_datetime(buff['date'])
     buff['lux'] = pd.to_numeric(buff['lux'])
-    buff['varlux'] = pd.to_numeric(buff['varlux'])
+    buff['delta_lux'] = pd.to_numeric(buff['delta_lux'])
     buff.set_index(['date'])
     
     for a in range(buffsize):
@@ -21,12 +21,12 @@ while True:
         bla = bla.decode('utf8')
         bla = bla.split(',')
         lux = float(bla[0])
-        varLux=round(lux-oldLux,3)
-        shit = pd.DataFrame([[lux,varLux,  pd.to_datetime(
-        pd.Timestamp.now())]], columns=['lux','varlux', 'date'])
+        delta_Lux=round(lux-oldLux,3)
+        shit = pd.DataFrame([[lux,delta_Lux,  pd.to_datetime(
+        pd.Timestamp.now())]], columns=['lux','delta_lux', 'date'])
         buff = pd.concat([buff, shit])
         oldLux=lux
-    print(pd.Timestamp.now(),shit)
+    print(pd.Timestamp.now(),'\n',shit)
     #print(buff.dtypes)
     buff.set_index('date')
     store = pd.HDFStore('data.h5', mode='a',complevel=9)
