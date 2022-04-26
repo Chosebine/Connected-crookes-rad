@@ -40,9 +40,10 @@
  
  ### Logiciel
  
-1. Circuit-python : 
+1. CircuitPython : 
     * Interface intéractive simplifiant l'expérimentation
-    * Simplicité du déploiement 
+    * Simplicité du déploiement
+    * Librairie du capteur TSL2591 disponible en CircuitPython
            
 2. Serveur Jupyter : 
     * L'accès aux librairies courantes du domaine scientifique (scipy, numpy,.etc) permet de lire,traiter et présenter les données enregistrés.
