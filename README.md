@@ -1,5 +1,5 @@
 # Connected-crookes-rad
-## Projet d'internet des objets pratique : un Radiomètre de Crookes connectés. 
+## Projet d'internet des objets : un Radiomètre de Crookes connectés. 
 
 Objectif  * Créer un dispositif de surveillance d'un système dynamique
             * Expérimenter directement les concepts liés à l'échantillonage
